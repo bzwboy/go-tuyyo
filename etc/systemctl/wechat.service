@@ -1,0 +1,13 @@
+[Unit]
+Description=MeetingRoom Longthtooth
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+Type=simple
+ExecStart=/home/ubuntu/tuyyo/bin/wechat_prod -m product
+Restart=always

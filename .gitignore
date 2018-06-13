@@ -1,0 +1,7 @@
+pkg/*
+src/github.com
+src/gopkg.in
+.idea
+bin
+*.swp
+nohup.out

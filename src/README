@@ -1,0 +1,15 @@
+设置 stack 大小
+编辑 /etc/profile
+ulimit -s 5242880
+
+sudo supervisorctl stop tuyyo:tuyyo_prod
+sudo supervisorctl start tuyyo:tuyyo_prod
+
+** v2.0 版本迁移 **
+当前消息队列 A
+迁移临时用队列 B
+1、php 上线代码，写入另一个消息队列 B
+2、检测 A 队列消息已经处理完成
+3、修改 longtooth 指向队列 B
+4、重启 longtooth 服务
+5、停止 A 队列

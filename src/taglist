@@ -1,0 +1,32 @@
+Git Tag 说明
+
+* v1.0.2 2018-03-26
+调整 HttpCenter 和 LtCenter 交互接口参数，msg_id => send_id
+
+* v1.1.0 2018-03-28
+1、使用 ini 配置文件实现程序中参数设置
+2、修改 map 资源竞争导致程序 fatal 问题
+
+* v1.2.0 2018-03-31
+md5sum ddc7058a759c21610771ec3628f73b02
+1、修改重大bug，并发数增加导致出现段错误
+2、调整参数，提升程序性能，实测并发2000 没有问题
+
+* v1.2.1 2018-03-31
+md5sum a260e432fad4c7f444600da35be3c22a
+1、修改释放无效指针操作
+double free or corruption (fasttop): 0x00007f865800408
+
+* v2.0.0
+使用 redis 替换 go-channel 实现发送队列服务 ok
+严格发送消息顺序, 同步锁（channel 实现）ok
+优化顺序发送消息性能，增加每次发送数据条数 ok
+日志功能增加日志级别 ok
+客户收到消息顺序不正确，go-hashmap 展现顺序是随机，和添加顺序无关，不能依赖 ok
+response_domain 参数配置问题导致 panic 没有捕获 ok
+修改没有接收端时候程序正常运行 ok
+无缓冲通道产生异常阻塞问题 ok
+区分不同配置文件（dev/prod）ok
+增加输出程序统计功能 ok
+完善各种通道操作，避免死锁 ok
+测试生产环境代码 ok
